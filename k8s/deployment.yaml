@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: online-bookstore
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: online-bookstore
+  template:
+    metadata:
+      labels:
+        app: online-bookstore
+    spec:
+      containers:
+        - name: online-bookstore
+          image: mmokshitha/online-bookstore-demo:latest
+          ports:
+            - containerPort: 5000
